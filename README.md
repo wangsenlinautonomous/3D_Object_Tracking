@@ -47,27 +47,32 @@ In this final project, you will implement the missing parts in the schematic. To
 
 Implement the method "matchBoundingBoxes", which takes as input both the previous and the current data frames and provides as output the ids of the matched regions of interest (i.e. the boxID property). Matches must be the ones with the highest number of keypoint correspondences.
 
+Meet the requirements
+
 #### 2. Compute Lidar-based TTC
 
 Compute the time-to-collision in second for all matched 3D objects using only Lidar measurements from the matched bounding boxes between current and previous frame.
 
-In order to deal with outlier Lidar points in a statistically robust way to avoid severe estimation errors, here only consider Lidar points within ego lane, then get the mean distance to get stable output.
+Meet the requirements
 
 #### 3. Associate Keypoint Correspondences with Bounding Boxes
 
 Prepare the TTC computation based on camera measurements by associating keypoint correspondences to the bounding boxes which enclose them. All matches which satisfy this condition must be added to a vector in the respective bounding box.
 
+Meet the requirements
+
 #### 4. Compute Camera-based TTC
 
 Compute the time-to-collision in second for all matched 3D objects using only keypoint correspondences from the matched bounding boxes between current and previous frame.
+
+Meet the requirements
 
 
 #### 5.  Performance Evaluation 1
 
 Find examples where the TTC estimate of the Lidar sensor does not seem plausible. Describe your observations and provide a sound argumentation why you think this happened.
 
-TTC from Lidar is not correct because of some outliers and some unstable points from preceding vehicle's  front mirrors, those need to be filtered out . Here we adapt a bigger shrinkFactor = 0.2, to get more reliable and stable lidar points. Then get a  more accurate results.
-
+Meet the requirements
 
 #### 6. Performance Evaluation 2
 
