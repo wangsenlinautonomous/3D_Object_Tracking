@@ -39,7 +39,7 @@ In this final project, you will implement the missing parts in the schematic. To
 # Wright up
 ## [Rubric](https://review.udacity.com/#!/rubrics/2550/view) Points
 
-
+The reslut is showing as below pic, it works
 <img src="https://user-images.githubusercontent.com/40875720/68921484-e45c0e00-07b3-11ea-8748-b78ae2d5aac1.PNG" width="600">
 
 
@@ -53,7 +53,7 @@ Meet the requirements
 
 Compute the time-to-collision in second for all matched 3D objects using only Lidar measurements from the matched bounding boxes between current and previous frame.
 
-Meet the requirements
+Meet the requirements. Here only consider lidar information in the ego lane, which can help us to get the better result
 
 #### 3. Associate Keypoint Correspondences with Bounding Boxes
 
@@ -65,22 +65,23 @@ Meet the requirements
 
 Compute the time-to-collision in second for all matched 3D objects using only keypoint correspondences from the matched bounding boxes between current and previous frame.
 
-Meet the requirements
+Meet the requirements.
+TTC = (-1.0 / frameRate) / (1 - medianDistRatio);
+According this to calculate the TTC.
 
 
 #### 5.  Performance Evaluation 1
 
 Find examples where the TTC estimate of the Lidar sensor does not seem plausible. Describe your observations and provide a sound argumentation why you think this happened.
 
-Meet the requirements
+The below pic shows some of the examples.
+
+<img src="https://user-images.githubusercontent.com/40875720/68987449-298c4880-0865-11ea-8b31-81bc0bdeb5d4.PNG" width="600">
+
+The red marked one is very bad, since the accuracy of Lidar is high. The reason is the camera based TTC is very bad.
 
 #### 6. Performance Evaluation 2
 
 Run several detector / descriptor combinations and look at the differences in TTC estimation. Find out which methods perform best and also include several examples where camera-based TTC estimation is way off. As with Lidar, describe your observations again and also look into potential reasons.
 
-when get a robust  clusterKptMatchesWithROI can get a stable TTC from Camera. if the result get unstable, It's probably the worse keypints matches.
-
-The TOP3 detector / descriptor combinations as the best choice for our purpose of detecting keypoints on vehicles are:
-SHITOMASI/BRISK         
-SHITOMASI/BRIEF            
-SHITOMASI/ORB           
+The top three are blue marked.
